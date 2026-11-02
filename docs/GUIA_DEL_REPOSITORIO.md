@@ -2,18 +2,17 @@
 
 > **Versión**: Noviembre 2026 | **Entorno**: Producción Estática & Landing Pages  
 > **Ubicación Base**: `propuesta/` | **Marca**: Envíos DosRuedas (Mar del Plata, Argentina)  
-> **Especificación de Ingeniería de Diseño**: Consultar también [`DESIGN.md`](../DESIGN.md) para el sistema de tokens canónico y resolución de deuda técnica.  
 > **Generado Programáticamente** mediante el agente `agency-document-generator`.
 
 ---
 
 ## 📌 1. Visión General del Proyecto
 
-El repositorio **sistema_diseno_envios_noviembre** contiene el ecosistema completo de landing pages, sistema de diseño visual, componentes reutilizables y activos gráficos de **Envíos DosRuedas**, empresa de mensajería en moto, paquetería urbana y logística e-commerce en la ciudad de Mar del Plata.
+El repositorio **sistema_diseno_envios_noviembre** contiene el ecosistema completo de landing pages, sistema de diseño visual, componentes reutilizables y activos gráficos de **Envíos DosRuedas**, empresa líder en mensajería en moto, paquetería urbana y logística e-commerce en la ciudad de Mar del Plata.
 
 ### Objetivos Clave de la Arquitectura:
 - **Identidad de Marca Sólida**: Basada en el azul primario (`#0950F6`) y el amarillo acento (`#FFEC01`), transmitiendo velocidad, confianza y visibilidad urbana.
-- **Rendimiento Excepcional**: HTML5 semántico puro sin dependencias pesadas de frameworks; acelerado con Tailwind CSS vía CDN y hojas de estilos especializadas (`layout.css` y `home.css`).
+- **Rendimiento Excepcional**: HTML5 semántico puro sin dependencias pesadas de frameworks reactivos; acelerado con Tailwind CSS vía CDN y hojas de estilos especializadas (`layout.css` y `home.css`).
 - **Interactividad Accesible**: Barra de navegación fija con elevación dinámica, cajón móvil accesible por teclado (tecla Escape), dropdowns con atributos `aria-*` y soporte de iconos mediante Lucide Icons.
 - **Enfoque en Conversión**: Integración directa con WhatsApp como canal de contacto y cierre comercial primario mediante botones píldora (*Nested Pill CTAs*).
 
@@ -43,10 +42,10 @@ El sistema de diseño define tokens formales en `:root` dentro de `propuesta/css
 
 | Fuente | Variable / Clase | Rol Tipográfico | Características |
 |:---|:---|:---|:---|
-| **Anton** | `font-display` | Display Headlines (Títulos principales H1/H2) | uppercase, tracking-tight (Google Fonts) |
-| **Bebas Neue** | `font-subheading` | Subheadings, Pills, Badges y Botones de Acción | uppercase, tracking-wider (Google Fonts) |
-| **Outfit** | `font-sans` | Cuerpo de texto, párrafos y navegación legible | 300/400/500/600/700 (Google Fonts) |
-| **Geist Mono** | `font-mono` | Métricas, precios, números y etiquetas técnicas | tabular-nums (Google Fonts) |
+| **Anton** | `font-display` | Display Headlines (Títulos principales H1/H2) | font-display, uppercase, tracking-tight (Google Fonts) |
+| **Bebas Neue** | `font-subheading` | Subheadings, Pills, Badges y Botones de Acción | font-subheading, uppercase, tracking-wider (Google Fonts) |
+| **Outfit** | `font-sans` | Cuerpo de texto, párrafos y navegación legible | font-sans, 300/400/500/600/700 (Google Fonts) |
+| **Geist Mono** | `font-mono` | Métricas, precios, números y etiquetas técnicas | font-mono, tabular-nums (Google Fonts) |
 
 ### 2.3 Microinteracciones y Efectos Clave
 
@@ -66,7 +65,7 @@ sistema_diseno_envios_noviembre/
 │   ├── GUIA_DEL_REPOSITORIO.md    # Esta guía técnica integral
 │   └── guia_del_repositorio.html  # Documento interactivo e imprimible (PDF)
 ├── scripts/                       # Herramientas de automatización
-│   ├── generate_repo_guide.js     # Generador de documentación
+│   ├── generate_repo_guide.js     # Generador de documentación (este script)
 │   └── inspect_pages.js           # Inspector y validador de páginas HTML
 └── propuesta/                     # Raíz de la plataforma web y landings
     ├── index.html                 # Landing Page Principal Oficial
@@ -104,45 +103,45 @@ A continuación se detalla el inventario exhaustivo de las 19 páginas que compo
 
 | Archivo | Título | Tipo de Página | Propósito Principal | CTA Principal |
 |:---|:---|:---:|:---|:---:|
-| [`index.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/index.html) | **Mensajería en moto en Mar del Plata \| Envíos DosRuedas** | Landing Principal (Home) | Página de inicio completa con 8 secciones estratégicas: Hero animado, carrusel de beneficios, tarjetas de servicios estrella, cotizador exprés, testimonios, proceso de envío, banner de app y pie oficial. | *Pedir Envío por WhatsApp / Cotizar Online* |
-| [`inicio.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/inicio.html) | **Mensajería en moto en Mar del Plata \| Envíos DosRuedas** | Alias de Landing Home | Versión espejo y punto de entrada alternativo para compatibilidad de rutas de servidores web. | *Acceso a la plataforma principal* |
-| [`cotizar.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/cotizar.html) | **Cotizá tu Envío en Moto \| Envíos DosRuedas** | Herramienta Interactiva | Calculadora de tarifas por zonas de Mar del Plata, cálculo según tipo de paquete (sobres, cajas medianas, bultos) y servicio solicitado. | *Confirmar Cotización vía WhatsApp* |
-| [`contacto.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/contacto.html) | **Contacto y Pedidos en Mar del Plata \| Envíos DosRuedas** | Conversión Directa | Hub de comunicación con accesos directos al canal oficial de WhatsApp, línea telefónica, dirección de base operativa y formulario. | *Escribinos por WhatsApp / Enviar Mensaje* |
+| [`index.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/index.html) | **Mensajería en moto en Mar del Plata | Envíos DosRuedas** | Landing Principal (Home) | Página de inicio completa con 8 secciones estratégicas: Hero animado, carrusel de beneficios, tarjetas de servicios estrella, cotizador exprés, testimonios, proceso de envío, banner de app y pie oficial. | *Pedir Envío por WhatsApp / Cotizar Online* |
+| [`inicio.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/inicio.html) | **Mensajería en moto en Mar del Plata | Envíos DosRuedas** | Alias de Landing Home | Versión espejo y punto de entrada alternativo para compatibilidad de rutas de servidores web. | *Acceso a la plataforma principal* |
+| [`cotizar.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/cotizar.html) | **Cotizá tu Envío en Moto | Envíos DosRuedas** | Herramienta Interactiva | Calculadora de tarifas por zonas de Mar del Plata, cálculo según tipo de paquete (sobres, cajas medianas, bultos) y servicio solicitado. | *Confirmar Cotización vía WhatsApp* |
+| [`contacto.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/contacto.html) | **Contacto y Pedidos en Mar del Plata | Envíos DosRuedas** | Conversión Directa | Hub de comunicación con accesos directos al canal oficial de WhatsApp, línea telefónica, dirección de base operativa y formulario. | *Escribinos por WhatsApp / Enviar Mensaje* |
 
 ### 2. Catálogo de Servicios Logísticos
 
 | Archivo | Título | Tipo de Página | Propósito Principal | CTA Principal |
 |:---|:---|:---:|:---|:---:|
-| [`servicios-envios-express.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-envios-express.html) | **Envíos Express en Moto en Mar del Plata \| Envíos DosRuedas** | Servicio de Alta Prioridad | Cadetería urgente punto a punto en menos de 60 minutos dentro del radio urbano de Mar del Plata. Ideal para documentos, llaves y urgencias. | *Pedir Moto Express Ahora* |
-| [`servicios-envios-lowcost.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-envios-lowcost.html) | **Cadetería y Envíos en el Día en Mar del Plata \| Envíos DosRuedas** | Servicio Económico / Consolidado | Entregas en el día con tarifas accesibles mediante franjas horarias optimizadas de reparto. Perfecto para envíos no urgentes. | *Programar Envío LowCost* |
-| [`servicios-enviosflex.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-enviosflex.html) | **Mercado Envíos Flex en Mar del Plata \| Envíos DosRuedas** | Integración e-Commerce | Logística especializada y homologada para vendedores de Mercado Libre en Mar del Plata. Cumplimiento de entregas el mismo día para reputación verde. | *Activar Envíos Flex para mi Tienda* |
-| [`servicios-empresas-cuenta-corriente.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-empresas-cuenta-corriente.html) | **Cuenta Corriente y Envíos para Empresas \| Envíos DosRuedas** | Solución Corporativa B2B | Servicio integral para empresas, estudios contables, laboratorios y comercios con facturación mensual consolidada (A o B) y remito digital. | *Solicitar Apertura de Cuenta Corriente* |
-| [`servicios-deposito-fulfillment.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-deposito-fulfillment.html) | **Depósito y Fulfillment para PyMEs \| Envíos DosRuedas** | Logística Integral 3PL | Servicio de recepción de mercadería, guardado seguro en depósito central, picking, packing y despacho automático el mismo día. | *Cotizar Almacenamiento y Fulfillment* |
-| [`servicios-envios-contrareembolso.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-envios-contrareembolso.html) | **Envíos Contra Reembolso en Mar del Plata \| Cobro en Destino** | Cobranza y Finanzas | Cobro en efectivo o transferencia bancaria en la puerta del cliente receptor, con rendición inmediata y segura al vendedor. | *Solicitar Envío con Cobro en Destino* |
-| [`servicios-plan-emprendedores.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-plan-emprendedores.html) | **Plan Emprendedores y Fulfillment 3PL \| Envíos DosRuedas** | Solución para Tiendas y Pymes | Paquetes mensuales diseñados para tiendas de Instagram, showrooms y emprendedores locales con beneficios progresivos según cantidad de envíos. | *Unirme al Plan Emprendedores* |
+| [`servicios-envios-express.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-envios-express.html) | **Envíos Express en Moto en Mar del Plata | Envíos DosRuedas** | Servicio de Alta Prioridad | Cadetería urgente punto a punto en menos de 60 minutos dentro del radio urbano de Mar del Plata. Ideal para documentos, llaves y urgencias. | *Pedir Moto Express Ahora* |
+| [`servicios-envios-lowcost.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-envios-lowcost.html) | **Cadetería y Envíos en el Día en Mar del Plata | Envíos DosRuedas** | Servicio Económico / Consolidado | Entregas en el día con tarifas accesibles mediante franjas horarias optimizadas de reparto. Perfecto para envíos no urgentes. | *Programar Envío LowCost* |
+| [`servicios-enviosflex.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-enviosflex.html) | **Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas** | Integración e-Commerce | Logística especializada y homologada para vendedores de Mercado Libre en Mar del Plata. Cumplimiento de entregas el mismo día para reputación verde. | *Activar Envíos Flex para mi Tienda* |
+| [`servicios-empresas-cuenta-corriente.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-empresas-cuenta-corriente.html) | **Cuenta Corriente y Envíos para Empresas | Envíos DosRuedas** | Solución Corporativa B2B | Servicio integral para empresas, estudios contables, laboratorios y comercios con facturación mensual consolidada (A o B) y remito digital. | *Solicitar Apertura de Cuenta Corriente* |
+| [`servicios-deposito-fulfillment.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-deposito-fulfillment.html) | **Depósito y Fulfillment para PyMEs | Envíos DosRuedas** | Logística Integral 3PL | Servicio de recepción de mercadería, guardado seguro en depósito central, picking, packing y despacho automático el mismo día. | *Cotizar Almacenamiento y Fulfillment* |
+| [`servicios-envios-contrareembolso.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-envios-contrareembolso.html) | **Envíos Contra Reembolso en Mar del Plata | Cobro en Destino** | Cobranza y Finanzas | Cobro en efectivo o transferencia bancaria en la puerta del cliente receptor, con rendición inmediata y segura al vendedor. | *Solicitar Envío con Cobro en Destino* |
+| [`servicios-plan-emprendedores.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/servicios-plan-emprendedores.html) | **Plan Emprendedores y Fulfillment 3PL | Envíos DosRuedas** | Solución para Tiendas y Pymes | Paquetes mensuales diseñados para tiendas de Instagram, showrooms y emprendedores locales con beneficios progresivos según cantidad de envíos. | *Unirme al Plan Emprendedores* |
 
 ### 3. Soluciones Específicas y Ecosistema Digital
 
 | Archivo | Título | Tipo de Página | Propósito Principal | CTA Principal |
 |:---|:---|:---:|:---|:---:|
-| [`guias-envios-flex-mar-del-plata.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/guias-envios-flex-mar-del-plata.html) | **Guía Mercado Envíos Flex en MDQ \| Envíos DosRuedas** | Centro de Recursos / Guía Educativa | Manual paso a paso para configurar zonas Flex, horarios de corte y sincronización de envíos en Mercado Libre dentro de Mar del Plata. | *Consultar con un Asesor Flex* |
-| [`logistica-dosruedas.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/logistica-dosruedas.html) | **Logística DosRuedas \| Seguimiento y Portales Digitales** | Plataforma Tecnológica | Información sobre el sistema digital de gestión, trazabilidad satelital y estado de cada paquete en tiempo real. | *Acceder al Portal de Clientes* |
-| [`mardelivery.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/mardelivery.html) | **MarDelivery \| Carta Digital, Pedidos QR y Cadetería** | Vertical Gastronómica | Solución integral para restaurantes, cafés y hamburgueserías marplatenses: menú interactivo digital, comanda por QR y cadetería propia. | *Conectar mi Restaurante con MarDelivery* |
+| [`guias-envios-flex-mar-del-plata.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/guias-envios-flex-mar-del-plata.html) | **Guía Mercado Envíos Flex en MDQ | Envíos DosRuedas** | Centro de Recursos / Guía Educativa | Manual paso a paso para configurar zonas Flex, horarios de corte y sincronización de envíos en Mercado Libre dentro de Mar del Plata. | *Consultar con un Asesor Flex* |
+| [`logistica-dosruedas.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/logistica-dosruedas.html) | **Logística DosRuedas | Seguimiento y Portales Digitales** | Plataforma Tecnológica | Información sobre el sistema digital de gestión, trazabilidad satelital y estado de cada paquete en tiempo real. | *Acceder al Portal de Clientes* |
+| [`mardelivery.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/mardelivery.html) | **MarDelivery | Carta Digital, Pedidos QR y Cadetería** | Vertical Gastronómica | Solución integral para restaurantes, cafés y hamburgueserías marplatenses: menú interactivo digital, comanda por QR y cadetería propia. | *Conectar mi Restaurante con MarDelivery* |
 
 ### 4. Institucional, Comunidad y Soporte
 
 | Archivo | Título | Tipo de Página | Propósito Principal | CTA Principal |
 |:---|:---|:---:|:---|:---:|
-| [`nosotros-sobre-nosotros.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/nosotros-sobre-nosotros.html) | **Sobre Nosotros y Trayectoria \| Envíos DosRuedas** | Institucional | Historia de la empresa fundada en Mar del Plata, filosofía de trabajo, compromiso con la puntualidad y cuidado de cada paquete. | *Conocer al Equipo* |
-| [`nosotros-nuestras-redes.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/nosotros-nuestras-redes.html) | **Nuestras Redes y Comunidad \| Envíos DosRuedas** | Social Media Hub | Directorio de perfiles oficiales en Instagram, Facebook, TikTok y testimonios de clientes y emprendedores que confían a diario. | *Seguinos en Instagram / Facebook* |
-| [`nosotros-preguntas-frecuentes.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/nosotros-preguntas-frecuentes.html) | **Preguntas Frecuentes (FAQ) \| Envíos DosRuedas** | Centro de Ayuda | Respuestas claras organizadas por categorías: formas de pago aceptadas, límites de peso/volumen, días de lluvia y políticas de reintento. | *¿Tenés otra duda? Hablá con Soporte* |
+| [`nosotros-sobre-nosotros.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/nosotros-sobre-nosotros.html) | **Sobre Nosotros y Trayectoria | Envíos DosRuedas** | Institucional | Historia de la empresa fundada en Mar del Plata, filosofía de trabajo, compromiso con la puntualidad y cuidado de cada paquete. | *Conocer al Equipo* |
+| [`nosotros-nuestras-redes.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/nosotros-nuestras-redes.html) | **Nuestras Redes y Comunidad | Envíos DosRuedas** | Social Media Hub | Directorio de perfiles oficiales en Instagram, Facebook, TikTok y testimonios de clientes y emprendedores que confían a diario. | *Seguinos en Instagram / Facebook* |
+| [`nosotros-preguntas-frecuentes.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/nosotros-preguntas-frecuentes.html) | **Preguntas Frecuentes (FAQ) | Envíos DosRuedas** | Centro de Ayuda | Respuestas claras organizadas por categorías: formas de pago aceptadas, límites de peso/volumen, días de lluvia y políticas de reintento. | *¿Tenés otra duda? Hablá con Soporte* |
 
 ### 5. Marco Legal y Cumplimiento Normativo
 
 | Archivo | Título | Tipo de Página | Propósito Principal | CTA Principal |
 |:---|:---|:---:|:---|:---:|
-| [`terminos-y-condiciones.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/terminos-y-condiciones.html) | **Términos y Condiciones \| Envíos DosRuedas** | Marco Legal | Contrato de servicio, condiciones de traslado de paquetería, mercaderías prohibidas, coberturas y límites de responsabilidad. | *Volver al Inicio* |
-| [`politica-de-privacidad.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/politica-de-privacidad.html) | **Política de Privacidad \| Envíos DosRuedas** | Protección de Datos | Compromiso de protección de datos personales de usuarios y remitentes de acuerdo con la legislación argentina vigente. | *Consultar Términos* |
+| [`terminos-y-condiciones.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/terminos-y-condiciones.html) | **Términos y Condiciones | Envíos DosRuedas** | Marco Legal | Contrato de servicio, condiciones de traslado de paquetería, mercaderías prohibidas, coberturas y límites de responsabilidad. | *Volver al Inicio* |
+| [`politica-de-privacidad.html`](file:///D:/repositorios/sistema_diseno_envios_noviembre/propuesta/politica-de-privacidad.html) | **Política de Privacidad | Envíos DosRuedas** | Protección de Datos | Compromiso de protección de datos personales de usuarios y remitentes de acuerdo con la legislación argentina vigente. | *Consultar Términos* |
 
 ---
 
@@ -207,4 +206,4 @@ python -m http.server 8000 --directory propuesta
 
 ---
 
-*Documentación compilada automáticamente por **agency-document-generator**.*
+*Documentación compilada automáticamente por **agency-document-generator**.*  
