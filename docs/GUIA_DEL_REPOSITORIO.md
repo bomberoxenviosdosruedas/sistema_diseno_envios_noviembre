@@ -2,6 +2,7 @@
 
 > **Versión**: Noviembre 2026 | **Entorno**: Producción Estática & Landing Pages  
 > **Ubicación Base**: `propuesta/` | **Marca**: Envíos DosRuedas (Mar del Plata, Argentina)  
+> **Especificación de Ingeniería de Diseño**: Consultar también [`DESIGN.md`](../DESIGN.md) para el sistema de tokens canónico y resolución de deuda técnica.  
 > **Generado Programáticamente** mediante el agente `agency-document-generator`.
 
 ---
