@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Técnica y Manual del Repositorio | Envíos DosRuedas</title>
+  <!-- Google Fonts Oficiales -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Geist+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0950F6',
+              'blue-50': '#E6EEFE',
+              'blue-100': '#BACEFD',
+              'blue-200': '#8EAFFB',
+              'blue-600': '#0840c4',
+              'blue-900': '#06287c',
+              yellow: '#FFEC01',
+              'yellow-400': '#FFF12E',
+              'yellow-600': '#E6D400',
+              ink: '#06287c',
+              bgLight: '#F8FAFD'
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Anton', 'sans-serif'],
+            subheading: ['Bebas Neue', 'sans-serif'],
+            mono: ['Geist Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --color-brand-blue: #0950F6;
+      --color-brand-yellow: #FFEC01;
+      --color-text-dark: #06287c;
+    }
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: #06287c;
+      background-color: #F8FAFD;
+    }
+    .font-display { font-family: 'Anton', sans-serif; letter-spacing: -0.02em; }
+    .font-subheading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+    .font-mono { font-family: 'Geist Mono', monospace; }
+    
+    /* Estilos de impresión y exportación a PDF */
+    @media print {
+      body { background-color: white !important; color: black !important; }
+      .no-print { display: none !important; }
+      .page-break { page-break-before: always; }
+      header { position: relative !important; background: #0950F6 !important; }
+      .shadow-box { box-shadow: none !important; border: 1px solid #ccc !important; }
+      a { text-decoration: none !important; color: inherit !important; }
+    }
+
+    .swatch-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .swatch-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px -5px rgba(9, 80, 246, 0.15);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR NO IMPRIMIBLE -->
+  <aside class="no-print bg-slate-900 text-white text-xs py-2 px-4 sticky top-0 z-50 flex items-center justify-between border-b border-white/10">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span class="font-mono font-medium">Documento Técnico Generado Programáticamente</span>
+      <span class="text-slate-400">|</span>
+      <span>Repositorio: <code class="text-brand-yellow font-bold">sistema_diseno_envios_noviembre</code></span>
+    </div>
+    <div class="flex items-center gap-3">
+      <button onclick="window.print()" class="bg-brand-yellow hover:bg-brand-yellow-400 text-brand-blue font-bold px-3.5 py-1.5 rounded-lg text-xs transition flex items-center gap-1.5 cursor-pointer shadow-sm">
+        <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+        <span>Imprimir o Guardar como PDF</span>
+      </button>
+      <a href="../propuesta/index.html" class="bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg text-xs transition flex items-center gap-1">
+        <span>Abrir Landing Web</span>
+        <i data-lucide="external-link" class="w-3 h-3"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- CABECERA INSTITUCIONAL DOCUMENTO -->
+  <header class="bg-brand-blue text-white py-12 px-6 sm:px-12 border-b-8 border-brand-yellow relative overflow-hidden">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative z-10">
+      <div>
+        <div class="inline-flex items-center gap-2 bg-white/15 px-3.5 py-1 rounded-full text-brand-yellow text-sm font-subheading tracking-wider mb-4 border border-white/20">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>DOCUMENTACIÓN DE ARQUITECTURA & GUÍA MAESTRA</span>
+        </div>
+        <h1 class="font-display text-4xl sm:text-6xl uppercase tracking-tight leading-none mb-3">
+          Sistema de Diseño <span class="text-brand-yellow">Envíos DosRuedas</span>
+        </h1>
+        <p class="text-brand-blue-50 text-lg max-w-2xl font-light">
+          Catálogo integral de componentes, guía de estilo visual y especificación técnica de las 19 landing pages para la mensajería y logística de Mar del Plata.
+        </p>
+      </div>
+      <div class="bg-white/10 backdrop-blur p-5 rounded-2xl border border-white/20 text-right min-w-[240px]">
+        <div class="text-xs uppercase tracking-widest text-brand-yellow font-subheading">Versión Oficial</div>
+        <div class="font-display text-3xl text-white">Noviembre 2026</div>
+        <div class="text-xs text-brand-blue-100 mt-1 font-mono">19 Páginas HTML | CSS Puro + Tailwind</div>
+        <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-end gap-2 text-xs text-brand-yellow font-bold">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
+          <span>Mar del Plata, Argentina</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="max-w-6xl mx-auto px-6 sm:px-12 py-10 flex-grow w-full space-y-12">
+
+    <!-- SECCIÓN 1: ÍNDICE Y RESUMEN RÁPIDO -->
+    <section class="bg-white rounded-2xl p-8 border border-brand-blue-100 shadow-sm">
+      <h2 class="font-display text-2xl uppercase tracking-tight text-brand-blue flex items-center gap-2 mb-4">
+        <i data-lucide="compass" class="w-6 h-6 text-brand-yellow-600"></i>
+        <span>1. Estructura y Navegación del Documento</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="#tokens" class="p-4 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100 hover:bg-brand-blue-50 transition group">
+          <div class="font-subheading text-lg uppercase font-bold text-brand-blue flex items-center justify-between">
+            <span>Design Tokens</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform"></i>
+          </div>
+          <p class="text-xs text-brand-blue-900/70 mt-1">Colores de marca, tipografías Anton/Bebas/Outfit y efectos visuales.</p>
+        </a>
+        <a href="#paginas" class="p-4 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100 hover:bg-brand-blue-50 transition group">
+          <div class="font-subheading text-lg uppercase font-bold text-brand-blue flex items-center justify-between">
+            <span>Catálogo de Páginas</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform"></i>
+          </div>
+          <p class="text-xs text-brand-blue-900/70 mt-1">Las 19 landings divididas por servicios, conversión e institucional.</p>
+        </a>
+        <a href="#arquitectura" class="p-4 rounded-xl bg-brand-blue-50/50 border border-brand-blue-100 hover:bg-brand-blue-50 transition group">
+          <div class="font-subheading text-lg uppercase font-bold text-brand-blue flex items-center justify-between">
+            <span>Arquitectura Shell</span>
+            <i data-lucide="arrow-right" class="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform"></i>
+          </div>
+          <p class="text-xs text-brand-blue-900/70 mt-1">Header interactivo, drawer móvil accesible y componentes reutilizables.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: DESIGN TOKENS (COLORES Y TIPOGRAFÍAS) -->
+    <section id="tokens" class="space-y-6">
+      <div class="border-b border-brand-blue-100 pb-3 flex items-center justify-between">
+        <h2 class="font-display text-3xl uppercase tracking-tight text-brand-blue flex items-center gap-2">
+          <i data-lucide="palette" class="w-7 h-7 text-brand-blue"></i>
+          <span>2. Tokens del Sistema de Diseño (Design Tokens)</span>
+        </h2>
+        <span class="text-xs font-mono bg-brand-blue-50 text-brand-blue px-3 py-1 rounded-full border border-brand-blue-100">CSS Tokens en layout.css</span>
+      </div>
+
+      <!-- Muestras de Color -->
+      <div>
+        <h3 class="font-subheading text-xl uppercase tracking-wider text-brand-blue-900 mb-3">Paleta Cromática Oficial</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #0950F6;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-brand-blue</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#0950F6</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Color Primario de Marca, Header y Botones de Acción</p>
+            </div>
+          </div>
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #E6EEFE;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-brand-blue-50</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#E6EEFE</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Fondo Suave / Superficie de Contraste</p>
+            </div>
+          </div>
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #BACEFD;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-brand-blue-100</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#BACEFD</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Bordes sutiles y divisores</p>
+            </div>
+          </div>
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #0840C4;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-brand-blue-600</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#0840C4</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Estado hover de botones azules</p>
+            </div>
+          </div>
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #06287C;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-brand-blue-900</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#06287C</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Color de texto oscuro y acentos de alto contraste</p>
+            </div>
+          </div>
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #FFEC01;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-brand-yellow</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#FFEC01</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Color de Acento Primario, Llamadas a la Acción (CTA) y Badges</p>
+            </div>
+          </div>
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #FFF12E;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-brand-yellow-400</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#FFF12E</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Variación luminosa de acento</p>
+            </div>
+          </div>
+          <div class="swatch-card bg-white rounded-xl overflow-hidden border border-brand-blue-100 shadow-sm flex flex-col">
+            <div class="h-20 w-full" style="background-color: #128C7E;"></div>
+            <div class="p-3.5 flex-grow flex flex-col justify-between">
+              <div>
+                <div class="font-mono text-xs font-bold text-slate-800">--color-whatsapp</div>
+                <div class="font-mono text-sm font-black text-brand-blue mt-0.5">#128C7E</div>
+              </div>
+              <p class="text-xs text-slate-600 mt-2">Canal oficial de pedidos y soporte por WhatsApp</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tipografías -->
+      <div class="pt-4">
+        <h3 class="font-subheading text-xl uppercase tracking-wider text-brand-blue-900 mb-3">Fuentes y Jerarquía Tipográfica</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white p-5 rounded-xl border border-brand-blue-100 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-bold tracking-wider text-brand-blue font-subheading">Display Headlines (Títulos principales H1/H2)</span>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Google Fonts</span>
+            </div>
+            <div class="text-3xl mt-2 mb-1 font-display uppercase text-brand-blue">
+              Anton — Mensajería Inmediata en Mar del Plata
+            </div>
+            <div class="text-xs text-slate-500 font-mono mt-2 pt-2 border-t border-slate-100">font-display, uppercase, tracking-tight</div>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-brand-blue-100 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-bold tracking-wider text-brand-blue font-subheading">Subheadings, Pills, Badges y Botones</span>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Google Fonts</span>
+            </div>
+            <div class="text-3xl mt-2 mb-1 font-subheading uppercase text-brand-blue tracking-wider">
+              Bebas Neue — Pedir Envío por WhatsApp
+            </div>
+            <div class="text-xs text-slate-500 font-mono mt-2 pt-2 border-t border-slate-100">font-subheading, uppercase, tracking-wider</div>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-brand-blue-100 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-bold tracking-wider text-brand-blue font-subheading">Cuerpo de texto y navegación</span>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Google Fonts</span>
+            </div>
+            <div class="text-xl mt-2 mb-1 font-sans font-medium text-slate-800">
+              Outfit — Paquetería ágil, segura y trazable para comercios e individuos.
+            </div>
+            <div class="text-xs text-slate-500 font-mono mt-2 pt-2 border-t border-slate-100">font-sans, 300 / 400 / 500 / 600 / 700</div>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-brand-blue-100 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs uppercase font-bold tracking-wider text-brand-blue font-subheading">Métricas, Precios y Código</span>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Google Fonts</span>
+            </div>
+            <div class="text-xl mt-2 mb-1 font-mono font-bold text-slate-800">
+              Geist Mono — Envío Express: $2.400 / Flex: -30%
+            </div>
+            <div class="text-xs text-slate-500 font-mono mt-2 pt-2 border-t border-slate-100">font-mono, tabular-nums</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: CATÁLOGO DETALLADO DE PÁGINAS (19 LANDINGS) -->
+    <section id="paginas" class="space-y-6 page-break">
+      <div class="border-b border-brand-blue-100 pb-3 flex items-center justify-between">
+        <h2 class="font-display text-3xl uppercase tracking-tight text-brand-blue flex items-center gap-2">
+          <i data-lucide="layers" class="w-7 h-7 text-brand-blue"></i>
+          <span>3. Catálogo Exhaustivo de Páginas (19 Landings)</span>
+        </h2>
+        <span class="text-xs font-mono bg-brand-yellow text-brand-blue font-bold px-3 py-1 rounded-full">19 Archivos HTML en propuesta/</span>
+      </div>
+
+      <!-- Grupo 1 -->
+      <div class="bg-white rounded-2xl p-6 border border-brand-blue-100 shadow-sm space-y-4">
+        <h3 class="font-subheading text-2xl uppercase tracking-wider text-brand-blue flex items-center gap-2 border-b border-brand-blue-50 pb-2">
+          <span class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-mono font-bold">1</span>
+          <span>Páginas Principales y de Conversión</span>
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="border-b-2 border-brand-blue-100 text-brand-blue font-subheading uppercase tracking-wider text-xs bg-brand-blue-50/50">
+                <th class="py-2.5 px-3">Archivo HTML</th>
+                <th class="py-2.5 px-3">Título / Finalidad</th>
+                <th class="py-2.5 px-3">Tipo</th>
+                <th class="py-2.5 px-3">Llamada a la Acción (CTA)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-brand-blue-50 font-sans">
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/index.html" class="hover:underline flex items-center gap-1">
+                    <span>index.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Mensajería en moto en Mar del Plata | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Página de inicio completa con 8 secciones estratégicas: Hero animado, carrusel de beneficios, tarjetas de servicios estrella, cotizador exprés, testimonios, proceso de envío, banner de app y pie oficial.</div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Landing Principal (Home)</span>
+                </td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">
+                  Pedir Envío por WhatsApp / Cotizar Online
+                </td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/inicio.html" class="hover:underline flex items-center gap-1">
+                    <span>inicio.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Mensajería en moto en Mar del Plata | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Versión espejo y punto de entrada alternativo para compatibilidad de rutas de servidores web.</div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Alias de Landing Home</span>
+                </td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">
+                  Acceso a la plataforma principal
+                </td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/cotizar.html" class="hover:underline flex items-center gap-1">
+                    <span>cotizar.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Cotizá tu Envío en Moto | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Calculadora de tarifas por zonas de Mar del Plata, cálculo según tipo de paquete (sobres, cajas medianas, bultos) y servicio solicitado.</div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Herramienta Interactiva</span>
+                </td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">
+                  Confirmar Cotización vía WhatsApp
+                </td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/contacto.html" class="hover:underline flex items-center gap-1">
+                    <span>contacto.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Contacto y Pedidos en Mar del Plata | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Hub de comunicación con accesos directos al canal oficial de WhatsApp, línea telefónica, dirección de base operativa y formulario.</div>
+                </td>
+                <td class="py-3 px-3">
+                  <span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Conversión Directa</span>
+                </td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">
+                  Escribinos por WhatsApp / Enviar Mensaje
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grupo 2 -->
+      <div class="bg-white rounded-2xl p-6 border border-brand-blue-100 shadow-sm space-y-4">
+        <h3 class="font-subheading text-2xl uppercase tracking-wider text-brand-blue flex items-center gap-2 border-b border-brand-blue-50 pb-2">
+          <span class="w-6 h-6 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-mono font-bold">2</span>
+          <span>Catálogo de Servicios Logísticos</span>
+        </h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-sm">
+            <thead>
+              <tr class="border-b-2 border-brand-blue-100 text-brand-blue font-subheading uppercase tracking-wider text-xs bg-brand-blue-50/50">
+                <th class="py-2.5 px-3">Archivo HTML</th>
+                <th class="py-2.5 px-3">Título / Finalidad</th>
+                <th class="py-2.5 px-3">Tipo</th>
+                <th class="py-2.5 px-3">Llamada a la Acción (CTA)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-brand-blue-50 font-sans">
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/servicios-envios-express.html" class="hover:underline flex items-center gap-1">
+                    <span>servicios-envios-express.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Envíos Express en Moto en Mar del Plata | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Cadetería urgente punto a punto en menos de 60 minutos dentro del radio urbano de Mar del Plata. Ideal para documentos, llaves y urgencias.</div>
+                </td>
+                <td class="py-3 px-3"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Servicio Prioritario</span></td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">Pedir Moto Express Ahora</td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/servicios-envios-lowcost.html" class="hover:underline flex items-center gap-1">
+                    <span>servicios-envios-lowcost.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Cadetería y Envíos en el Día en Mar del Plata | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Entregas en el día con tarifas accesibles mediante franjas horarias optimizadas de reparto. Perfecto para envíos no urgentes.</div>
+                </td>
+                <td class="py-3 px-3"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Servicio Económico</span></td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">Programar Envío LowCost</td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/servicios-enviosflex.html" class="hover:underline flex items-center gap-1">
+                    <span>servicios-enviosflex.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Mercado Envíos Flex en Mar del Plata | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Logística especializada y homologada para vendedores de Mercado Libre en Mar del Plata. Cumplimiento de entregas el mismo día para reputación verde.</div>
+                </td>
+                <td class="py-3 px-3"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Integración Flex MeLi</span></td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">Activar Envíos Flex</td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/servicios-empresas-cuenta-corriente.html" class="hover:underline flex items-center gap-1">
+                    <span>servicios-empresas-cuenta-corriente.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Cuenta Corriente y Envíos para Empresas | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Servicio integral para empresas, estudios contables, laboratorios y comercios con facturación mensual consolidada (A o B) y remito digital.</div>
+                </td>
+                <td class="py-3 px-3"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Solución B2B</span></td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">Abrir Cuenta Corriente</td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/servicios-deposito-fulfillment.html" class="hover:underline flex items-center gap-1">
+                    <span>servicios-deposito-fulfillment.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Depósito y Fulfillment para PyMEs | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Servicio de recepción de mercadería, guardado seguro en depósito central, picking, packing y despacho automático el mismo día.</div>
+                </td>
+                <td class="py-3 px-3"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Fulfillment 3PL</span></td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">Cotizar Almacenamiento</td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/servicios-envios-contrareembolso.html" class="hover:underline flex items-center gap-1">
+                    <span>servicios-envios-contrareembolso.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Envíos Contra Reembolso en Mar del Plata | Cobro en Destino</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Cobro en efectivo o transferencia bancaria en la puerta del cliente receptor, con rendición inmediata y segura al vendedor.</div>
+                </td>
+                <td class="py-3 px-3"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Cobro en Destino</span></td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">Solicitar Contra Reembolso</td>
+              </tr>
+              <tr class="hover:bg-brand-blue-50/30 transition">
+                <td class="py-3 px-3 font-mono font-semibold text-brand-blue">
+                  <a href="../propuesta/servicios-plan-emprendedores.html" class="hover:underline flex items-center gap-1">
+                    <span>servicios-plan-emprendedores.html</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-400 no-print"></i>
+                  </a>
+                </td>
+                <td class="py-3 px-3">
+                  <div class="font-bold text-slate-900">Plan Emprendedores y Fulfillment 3PL | Envíos DosRuedas</div>
+                  <div class="text-xs text-slate-600 mt-0.5 leading-relaxed">Paquetes mensuales diseñados para tiendas de Instagram, showrooms y emprendedores locales con beneficios progresivos según cantidad de envíos.</div>
+                </td>
+                <td class="py-3 px-3"><span class="inline-block px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 whitespace-nowrap">Plan Emprendedores</span></td>
+                <td class="py-3 px-3 font-subheading text-xs font-bold text-brand-blue uppercase tracking-wider">Unirme al Plan</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Grupo 3, 4 y 5 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-5 border border-brand-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="font-subheading text-xl uppercase text-brand-blue font-bold flex items-center gap-2 mb-2">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-mono">3</span>
+              <span>Ecosistema & Soluciones</span>
+            </div>
+            <ul class="divide-y divide-brand-blue-50 text-xs">
+              <li class="py-2.5">
+                <a href="../propuesta/guias-envios-flex-mar-del-plata.html" class="font-mono font-bold text-brand-blue hover:underline">guias-envios-flex-mar-del-plata.html</a>
+                <p class="text-slate-600 mt-0.5">Tutorial de configuración de Flex para vendedores.</p>
+              </li>
+              <li class="py-2.5">
+                <a href="../propuesta/logistica-dosruedas.html" class="font-mono font-bold text-brand-blue hover:underline">logistica-dosruedas.html</a>
+                <p class="text-slate-600 mt-0.5">Portal de seguimiento, tracking e infraestructura.</p>
+              </li>
+              <li class="py-2.5">
+                <a href="../propuesta/mardelivery.html" class="font-mono font-bold text-brand-blue hover:underline">mardelivery.html</a>
+                <p class="text-slate-600 mt-0.5">Carta digital QR y reparto para locales gastronómicos.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-brand-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="font-subheading text-xl uppercase text-brand-blue font-bold flex items-center gap-2 mb-2">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-mono">4</span>
+              <span>Institucional & Soporte</span>
+            </div>
+            <ul class="divide-y divide-brand-blue-50 text-xs">
+              <li class="py-2.5">
+                <a href="../propuesta/nosotros-sobre-nosotros.html" class="font-mono font-bold text-brand-blue hover:underline">nosotros-sobre-nosotros.html</a>
+                <p class="text-slate-600 mt-0.5">Historia, flota asegurada y equipo marplatense.</p>
+              </li>
+              <li class="py-2.5">
+                <a href="../propuesta/nosotros-nuestras-redes.html" class="font-mono font-bold text-brand-blue hover:underline">nosotros-nuestras-redes.html</a>
+                <p class="text-slate-600 mt-0.5">Instagram, Facebook, TikTok y testimonios reales.</p>
+              </li>
+              <li class="py-2.5">
+                <a href="../propuesta/nosotros-preguntas-frecuentes.html" class="font-mono font-bold text-brand-blue hover:underline">nosotros-preguntas-frecuentes.html</a>
+                <p class="text-slate-600 mt-0.5">Centro de preguntas frecuentes por categorías.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 border border-brand-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="font-subheading text-xl uppercase text-brand-blue font-bold flex items-center gap-2 mb-2">
+              <span class="w-5 h-5 rounded-full bg-brand-blue text-white flex items-center justify-center text-xs font-mono">5</span>
+              <span>Legales & Normativas</span>
+            </div>
+            <ul class="divide-y divide-brand-blue-50 text-xs">
+              <li class="py-2.5">
+                <a href="../propuesta/terminos-y-condiciones.html" class="font-mono font-bold text-brand-blue hover:underline">terminos-y-condiciones.html</a>
+                <p class="text-slate-600 mt-0.5">Condiciones de seguro, paquetería y responsabilidades.</p>
+              </li>
+              <li class="py-2.5">
+                <a href="../propuesta/politica-de-privacidad.html" class="font-mono font-bold text-brand-blue hover:underline">politica-de-privacidad.html</a>
+                <p class="text-slate-600 mt-0.5">Protección de datos conforme a la normativa argentina.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: COMPONENTES Y ARQUITECTURA TÉCNICA -->
+    <section id="arquitectura" class="space-y-6 page-break">
+      <div class="border-b border-brand-blue-100 pb-3 flex items-center justify-between">
+        <h2 class="font-display text-3xl uppercase tracking-tight text-brand-blue flex items-center gap-2">
+          <i data-lucide="cpu" class="w-7 h-7 text-brand-blue"></i>
+          <span>4. Componentes y Arquitectura Shell</span>
+        </h2>
+        <span class="text-xs font-mono bg-brand-blue-50 text-brand-blue px-3 py-1 rounded-full border border-brand-blue-100">layout.js + layout.css</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl p-5 border border-brand-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-subheading text-xl uppercase tracking-wide font-bold text-brand-blue">Header Fijo Unificado</h3>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">layout.css / layout.js</span>
+            </div>
+            <div class="font-mono text-xs text-slate-500 bg-slate-50 p-1.5 rounded mt-2 border border-slate-200">
+              #optimized-header / .header
+            </div>
+            <p class="text-xs text-slate-700 mt-2.5 leading-relaxed">
+              Cabecera fija con logo WebP, navegación con dropdowns accesibles (ARIA), botón de contacto directo y elevación dinámica en scroll al superar los 20px.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-brand-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-subheading text-xl uppercase tracking-wide font-bold text-brand-blue">Cajón Móvil (Drawer)</h3>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">layout.css / layout.js</span>
+            </div>
+            <div class="font-mono text-xs text-slate-500 bg-slate-50 p-1.5 rounded mt-2 border border-slate-200">
+              #mobile-drawer / #mobile-backdrop
+            </div>
+            <p class="text-xs text-slate-700 mt-2.5 leading-relaxed">
+              Menú lateral deslizable para móviles con backdrop difuminado, acordeones interactivos y soporte para cierre con tecla Escape.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-brand-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-subheading text-xl uppercase tracking-wide font-bold text-brand-blue">Botón Píldora Anidada</h3>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">layout.css</span>
+            </div>
+            <div class="font-mono text-xs text-slate-500 bg-slate-50 p-1.5 rounded mt-2 border border-slate-200">
+              .cta-nested-pill
+            </div>
+            <p class="text-xs text-slate-700 mt-2.5 leading-relaxed">
+              Botón con microinteracción de elevación, icono anidado en cápsula contrastante y tipografía Bebas Neue en mayúsculas con sombra reactiva.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-5 border border-brand-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <h3 class="font-subheading text-xl uppercase tracking-wide font-bold text-brand-blue">Tipografía Cinética</h3>
+              <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-0.5 rounded">layout.css</span>
+            </div>
+            <div class="font-mono text-xs text-slate-500 bg-slate-50 p-1.5 rounded mt-2 border border-slate-200">
+              .kinetic-font-stretch
+            </div>
+            <p class="text-xs text-slate-700 mt-2.5 leading-relaxed">
+              Efecto sutil de estiramiento horizontal en el logotipo o titulares al hacer hover (scaleX: 1.06) para dar dinamismo a la marca.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 5: GUÍA DE DESPLIEGUE Y COMANDOS -->
+    <section class="bg-slate-900 text-white rounded-2xl p-8 space-y-4">
+      <h2 class="font-display text-2xl uppercase tracking-tight text-brand-yellow flex items-center gap-2">
+        <i data-lucide="terminal" class="w-6 h-6"></i>
+        <span>5. Guía de Ejecución Local y Mantenimiento</span>
+      </h2>
+      <p class="text-sm text-slate-300">
+        Para iniciar un servidor de desarrollo estático y visualizar cualquiera de las páginas:
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+        <div class="bg-slate-950 p-4 rounded-xl border border-white/10">
+          <div class="text-brand-yellow font-bold mb-1">// Ejecutar servidor local con Node.js</div>
+          <div class="text-slate-200">npx serve propuesta</div>
+        </div>
+        <div class="bg-slate-950 p-4 rounded-xl border border-white/10">
+          <div class="text-brand-yellow font-bold mb-1">// Regenerar esta documentación</div>
+          <div class="text-slate-200">node scripts/generate_repo_guide.js</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE DEL DOCUMENTO -->
+  <footer class="bg-brand-blue text-white py-8 px-6 text-center border-t border-white/10 mt-12">
+    <div class="max-w-4xl mx-auto space-y-2">
+      <div class="font-display text-2xl uppercase tracking-tight">
+        Envíos <span class="text-brand-yellow">DosRuedas</span>
+      </div>
+      <p class="text-xs text-brand-blue-100">
+        Documentación oficial de arquitectura del repositorio generada automáticamente. Mar del Plata, Argentina.
+      </p>
+      <div class="text-xs text-brand-yellow/80 font-mono pt-2">
+        © 2026 Envíos DosRuedas. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  </script>
+</body>
+</html>

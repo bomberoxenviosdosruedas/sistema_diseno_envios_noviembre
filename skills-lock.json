@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "skills": {
+    "beautiful-article": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/beautiful-article/SKILL.md",
+      "computedHash": "c3ea3f16203aeb7c2fcca109db177fd68a91afcc3412dce7aa3e9295e3725f41"
+    },
+    "gpt-image-2": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/gpt-image-2/SKILL.md",
+      "computedHash": "f13447e1337d9b0eae35dc7009f96d2b60eb6c781a4b965c9309b2b76cdf3ab8"
+    },
+    "kb-retriever": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/kb-retriever/SKILL.md",
+      "computedHash": "eaa5cab0641b8e5a36c4ebf3973df4aa3b8186d68596e282cd4e451365d0b6e1"
+    },
+    "motion-showreel": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-showreel/SKILL.md",
+      "computedHash": "3d953f7940a4f42c2d7d008fdf1ac184ebf0043f74807b778f8805bcb85e6d4d"
+    },
+    "web-artifacts-builder": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-artifacts-builder/SKILL.md",
+      "computedHash": "fdddbe9bb720ea1aea9292ee513ec10b2a8f4912e2c343bdc246ab3febd7c9b3"
+    },
+    "web-design-engineer": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-design-engineer/SKILL.md",
+      "computedHash": "5f54d17dcdc77667489f8c216caceda287591773d0ad81b69efa822197ca4384"
+    },
+    "web-video-presentation": {
+      "source": "ConardLi/garden-skills",
+      "sourceType": "github",
+      "skillPath": "skills/web-video-presentation/SKILL.md",
+      "computedHash": "32159daa9482337c50371e7a307d23a87d7ae4de9c0d7d917bfbe6a4605ef97c"
+    }
+  }
+}
