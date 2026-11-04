@@ -1,0 +1,61 @@
+/* ─────────────────────────────────────────────────────────────────────
+ * Theme · custom-mardelivery
+ *   MarDelivery Dark Glassmorphism. Deep coastal dark (#031811),
+ *   emerald green primary (#35d07f), gold alert (#ffc833), info blue (#4da3ff).
+ *   Outfit display/body, Geist Mono numbers.
+ * ───────────────────────────────────────────────────────────────────── */
+:root {
+  /* ─── palette ─── */
+  --shell:        #031811;
+  --surface:      #062319;
+  --surface-2:    #07291d;
+  --surface-3:    #0c3325;
+  --text:         #edf8f1;
+  --text-2:       #9cb8ac;
+  --text-mute:    #657a70;
+  --text-faint:   rgba(156, 184, 172, 0.4);
+  --rule:         rgba(196, 235, 211, 0.12);
+  --accent:       #35d07f;
+  --accent-soft:  rgba(53, 208, 127, 0.12);
+  --accent-glow:  rgba(53, 208, 127, 0.45);
+
+  /* MarDelivery Operational Semantics */
+  --md-green:     #35d07f;
+  --md-gold:      #ffc833;
+  --md-blue:      #4da3ff;
+  --md-red:       #ff5247;
+  --md-glass:     linear-gradient(145deg, rgba(9, 40, 30, 0.88), rgba(4, 25, 19, 0.86));
+  --md-glass-border: rgba(196, 235, 211, 0.14);
+
+  /* ─── fonts ─── */
+  --font-display-cn: "Outfit", sans-serif;
+  --font-display-en: "Outfit", sans-serif;
+  --font-body:       "Outfit", sans-serif;
+  --font-mono:       "Geist Mono", monospace;
+  --font-features:   "tnum";
+
+  /* ─── motion: smooth & responsive ─── */
+  --ease-quart:    cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-expo:     cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-quick:     200ms;
+  --dur-base:      400ms;
+  --dur-slow:      700ms;
+  --dur-cinematic: 1100ms;
+
+  /* ─── design identity ─── */
+  --r-card:        24px;
+  --r-stage:       0;
+  --rule-w:        1px;
+  --rule-style:    solid;
+  --hero-num-font:    var(--font-mono);
+  --hero-num-style:   normal;
+  --hero-num-weight:  800;
+  --hero-num-track:   -0.03em;
+  --stage-pad-x:   80px;
+  --stage-pad-y:   60px;
+  --text-shadow:   0 0 12px rgba(53, 208, 127, 0.25);
+  --card-shadow:   0 24px 70px rgba(0, 0, 0, 0.35), inset 0 0 0 1px var(--rule);
+  --shadow-stage:
+    0 60px 160px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(196, 235, 211, 0.12);
+}

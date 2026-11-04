@@ -1,0 +1,46 @@
+.ch4-scene {
+  color: var(--text);
+  background: var(--surface);
+}
+.ch4-em {
+  color: var(--accent);
+}
+.ch4-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+}
+.ch4-h1 {
+  font-size: var(--t-display-2);
+  line-height: 1.05;
+  margin: 0;
+}
+.ch4-p {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  color: var(--text-mute);
+  max-width: 50ch;
+  margin: 0;
+  line-height: 1.5;
+}
+.ch4-split {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-9);
+  align-items: center;
+  padding-top: var(--space-5);
+}
+.ch4-split-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.ch4-h2 {
+  font-size: var(--t-h1);
+  line-height: 1.1;
+  margin: 0;
+}

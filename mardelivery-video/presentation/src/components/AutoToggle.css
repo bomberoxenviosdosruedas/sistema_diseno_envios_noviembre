@@ -1,0 +1,56 @@
+.at-hover {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: 60px;
+  z-index: 11;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 12px;
+  pointer-events: auto;
+}
+.at-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(3, 24, 17, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 8px 14px;
+  border-radius: 0 0 0 8px;
+  border: 1px solid var(--rule);
+  border-top: none;
+  border-right: none;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+.at-hover:hover .at-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+.at-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-mute);
+  display: inline-block;
+}
+.at-manual .at-dot {
+  background: var(--text-mute);
+}
+.at-audio .at-dot {
+  background: var(--md-gold);
+  box-shadow: 0 0 8px rgba(255, 200, 51, 0.6);
+}
+.at-auto .at-dot {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(53, 208, 127, 0.7);
+}

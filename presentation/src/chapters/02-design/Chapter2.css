@@ -1,0 +1,56 @@
+.ch2-scene {
+  color: var(--text);
+  background: var(--surface);
+}
+.ch2-em {
+  color: var(--accent);
+}
+.ch2-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+}
+.ch2-h1 {
+  font-size: var(--t-display-2);
+  line-height: 1.05;
+  margin: 0;
+}
+.ch2-h2 {
+  font-size: var(--t-h1);
+  line-height: 1.1;
+  margin: 0;
+}
+.ch2-palette-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  max-width: 800px;
+  margin-top: var(--space-5);
+}
+.ch2-color-card {
+  padding: 36px;
+  border-radius: var(--r-card);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--card-shadow);
+}
+.ch2-color-name {
+  font-family: var(--font-subheading);
+  font-size: 28px;
+  letter-spacing: 0.05em;
+}
+.ch2-color-hex {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  opacity: 0.85;
+}
+.ch2-grid-fonts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}

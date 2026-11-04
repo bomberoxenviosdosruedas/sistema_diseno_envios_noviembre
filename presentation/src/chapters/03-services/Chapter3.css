@@ -1,0 +1,44 @@
+.ch3-scene {
+  color: var(--text);
+  background: var(--surface);
+}
+.ch3-em {
+  color: var(--accent);
+}
+.ch3-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+}
+.ch3-h1 {
+  font-size: var(--t-display-2);
+  line-height: 1.05;
+  margin: 0;
+}
+.ch3-h2 {
+  font-size: var(--t-h1);
+  line-height: 1.1;
+  margin: 0;
+}
+.ch3-p {
+  font-family: var(--font-body);
+  font-size: var(--t-body);
+  color: var(--text-mute);
+  margin: 0;
+  line-height: 1.5;
+}
+.ch3-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}
+.ch3-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-5);
+}

@@ -1,0 +1,877 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Chapter 02 · La Solución (MarDelivery y la Soberanía Gastronómica)
+ * Namespace: .ls-
+ * ───────────────────────────────────────────────────────────────────────────── */
+
+.ls-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 56px 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+/* Ambient glow */
+.ls-ambient-glow {
+  position: absolute;
+  top: -10%;
+  left: 30%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(53, 208, 127, 0.16) 0%, rgba(3, 24, 17, 0) 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: lsPulseGlow 6s ease-in-out infinite alternate;
+}
+
+.ls-ambient-gold {
+  position: absolute;
+  bottom: -15%;
+  right: 10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 200, 51, 0.1) 0%, rgba(3, 24, 17, 0) 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes lsPulseGlow {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Kicker */
+.ls-kicker {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(53, 208, 127, 0.08);
+  border: 1px solid rgba(53, 208, 127, 0.25);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  width: fit-content;
+}
+
+.ls-kicker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  animation: lsBlink 1.6s infinite;
+}
+
+@keyframes lsBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* =========================================================================
+   STEP 0: MAR DELIVERY BRAND REVEAL
+   ========================================================================= */
+.ls-step0-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ls-brand-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ls-brand-title {
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: #fff;
+}
+
+.ls-brand-accent {
+  background: linear-gradient(135deg, #35d07f 0%, #a3f7c4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(53, 208, 127, 0.4);
+}
+
+.ls-brand-desc {
+  font-size: 22px;
+  color: var(--text-2);
+  line-height: 1.5;
+  max-width: 620px;
+  margin: 0;
+}
+
+.ls-pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.ls-pillar-card {
+  background: var(--md-glass);
+  border: 1px solid var(--md-glass-border);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.ls-pillar-num {
+  font-family: var(--font-mono);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.ls-pillar-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.ls-pillar-text {
+  font-size: 13px;
+  color: var(--text-mute);
+  line-height: 1.4;
+}
+
+.ls-badge-showcase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ls-badge-glow-ring {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 2px dashed rgba(53, 208, 127, 0.3);
+  animation: lsSpin 24s linear infinite;
+  box-shadow: 0 0 50px rgba(53, 208, 127, 0.15), inset 0 0 50px rgba(53, 208, 127, 0.15);
+}
+
+@keyframes lsSpin {
+  100% { transform: rotate(360deg); }
+}
+
+.ls-badge-img-wrapper {
+  position: relative;
+  width: 360px;
+  height: 360px;
+  border-radius: 36px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(53, 208, 127, 0.35);
+  border: 2px solid rgba(53, 208, 127, 0.4);
+  background: #031811;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ls-badge-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ls-badge-tagline {
+  margin-top: 24px;
+  background: rgba(4, 25, 19, 0.85);
+  border: 1px solid rgba(196, 235, 211, 0.18);
+  backdrop-filter: blur(12px);
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================================================
+   STEP 1: 0% COMISION VS 35% APPS
+   ========================================================================= */
+.ls-step1-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ls-step1-header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ls-step1-title {
+  font-size: 54px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.ls-step1-sub {
+  font-size: 20px;
+  color: var(--text-2);
+}
+
+.ls-compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.ls-compare-card {
+  background: var(--md-glass);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.ls-card-marketplace {
+  border: 2px solid rgba(255, 82, 71, 0.35);
+}
+
+.ls-card-marketplace::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--md-red);
+}
+
+.ls-card-mardelivery {
+  border: 2px solid rgba(53, 208, 127, 0.5);
+  box-shadow: 0 20px 60px rgba(53, 208, 127, 0.15);
+}
+
+.ls-card-mardelivery::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--accent);
+}
+
+.ls-compare-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ls-compare-badge {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.ls-badge-bad {
+  background: rgba(255, 82, 71, 0.12);
+  color: var(--md-red);
+  border: 1px solid rgba(255, 82, 71, 0.3);
+}
+
+.ls-badge-good {
+  background: rgba(53, 208, 127, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(53, 208, 127, 0.3);
+}
+
+.ls-commission-big {
+  font-family: var(--font-mono);
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.ls-comm-red {
+  color: var(--md-red);
+  text-decoration: line-through;
+  opacity: 0.85;
+}
+
+.ls-comm-green {
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(53, 208, 127, 0.5);
+}
+
+.ls-comm-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.ls-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ls-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.ls-item-icon-bad {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 82, 71, 0.15);
+  color: var(--md-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.ls-item-icon-good {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(53, 208, 127, 0.18);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+/* Simulator Bar */
+.ls-simulator-bar {
+  background: rgba(4, 25, 19, 0.9);
+  border: 1px solid rgba(196, 235, 211, 0.15);
+  border-radius: 20px;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ls-sim-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ls-sim-label {
+  font-size: 13px;
+  color: var(--text-mute);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.ls-sim-val {
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.ls-sim-saved {
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(53, 208, 127, 0.35);
+}
+
+/* =========================================================================
+   STEP 2: SMARTPHONE CARTA DIGITAL QR
+   ========================================================================= */
+.ls-step2-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ls-qr-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.ls-qr-headline {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: #fff;
+}
+
+.ls-qr-highlight {
+  color: var(--accent);
+}
+
+.ls-qr-card-wrapper {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.ls-qr-visual-box {
+  width: 140px;
+  height: 140px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(53, 208, 127, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.ls-qr-scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent);
+  animation: lsScanMotion 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes lsScanMotion {
+  0% { top: 6%; opacity: 0.3; }
+  100% { top: 92%; opacity: 1; }
+}
+
+.ls-qr-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ls-qr-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ls-bullet-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--text-2);
+}
+
+.ls-bullet-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Smartphone Mockup */
+.ls-phone-frame {
+  width: 580px;
+  height: 640px;
+  background: #02120d;
+  border: 12px solid #07291d;
+  border-radius: 46px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), inset 0 0 0 2px rgba(196, 235, 211, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  justify-self: center;
+}
+
+.ls-phone-notch {
+  width: 130px;
+  height: 22px;
+  background: #07291d;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.ls-phone-header {
+  padding: 12px 24px;
+  background: rgba(4, 25, 19, 0.9);
+  border-bottom: 1px solid rgba(196, 235, 211, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ls-phone-store-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.ls-phone-store-status {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(53, 208, 127, 0.12);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.ls-phone-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 20px 8px 20px;
+  background: #031811;
+  overflow-x: auto;
+}
+
+.ls-phone-tab {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ls-tab-active {
+  background: var(--accent);
+  color: #031811;
+}
+
+.ls-tab-inactive {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-2);
+}
+
+.ls-phone-body {
+  flex: 1;
+  overflow-y: hidden;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ls-menu-card {
+  background: rgba(6, 35, 25, 0.85);
+  border: 1px solid rgba(196, 235, 211, 0.12);
+  border-radius: 18px;
+  padding: 10px 14px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.ls-menu-thumb {
+  width: 76px;
+  height: 76px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #0c3325;
+  flex-shrink: 0;
+  border: 1px solid rgba(196, 235, 211, 0.15);
+}
+
+.ls-menu-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ls-menu-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.ls-menu-desc {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.ls-menu-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.ls-menu-price {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.ls-menu-btn {
+  background: rgba(53, 208, 127, 0.15);
+  border: 1px solid rgba(53, 208, 127, 0.3);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ls-phone-checkout {
+  padding: 14px 20px;
+  background: rgba(4, 25, 19, 0.95);
+  border-top: 1px solid rgba(196, 235, 211, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ls-checkout-summary {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.ls-checkout-price {
+  font-family: var(--font-mono);
+  font-weight: 900;
+  color: #fff;
+  font-size: 16px;
+}
+
+.ls-checkout-btn {
+  background: var(--accent);
+  color: #031811;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  box-shadow: 0 4px 15px rgba(53, 208, 127, 0.4);
+}
+
+/* =========================================================================
+   STEP 3: CONTINUOUS FLOW DIAGRAM (QR -> COCINA -> MOTO DOSRUEDAS)
+   ========================================================================= */
+.ls-step3-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ls-step3-header {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.ls-step3-title {
+  font-size: 54px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.ls-step3-sub {
+  font-size: 20px;
+  color: var(--text-2);
+}
+
+.ls-pipeline-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.ls-pipeline-connector-line {
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  right: 10%;
+  height: 4px;
+  background: rgba(196, 235, 211, 0.15);
+  z-index: 1;
+}
+
+.ls-pipeline-connector-pulse {
+  position: absolute;
+  top: 50px;
+  left: 10%;
+  width: 140px;
+  height: 4px;
+  background: linear-gradient(90deg, rgba(53, 208, 127, 0) 0%, #35d07f 50%, rgba(53, 208, 127, 0) 100%);
+  box-shadow: 0 0 12px #35d07f;
+  z-index: 2;
+  animation: lsFlowEnergy 3s infinite linear;
+}
+
+@keyframes lsFlowEnergy {
+  0% { left: 10%; }
+  100% { left: 85%; }
+}
+
+.ls-pipe-node {
+  position: relative;
+  z-index: 3;
+  background: var(--md-glass);
+  border: 1px solid var(--md-glass-border);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.ls-node-active {
+  border-color: rgba(53, 208, 127, 0.4);
+  box-shadow: 0 16px 40px rgba(53, 208, 127, 0.15);
+}
+
+.ls-node-badge-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #031811;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 900;
+  box-shadow: 0 0 20px rgba(53, 208, 127, 0.4);
+}
+
+.ls-node-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(53, 208, 127, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.ls-node-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.ls-node-detail {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.ls-node-tag {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(53, 208, 127, 0.1);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-top: 4px;
+}
+
+.ls-pipeline-footer {
+  background: rgba(4, 25, 19, 0.85);
+  border: 1px solid rgba(196, 235, 211, 0.15);
+  border-radius: 16px;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.ls-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ls-footer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
